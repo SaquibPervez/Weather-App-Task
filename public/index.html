@@ -152,7 +152,7 @@
     <h1 class="py-6 text-center text-5xl font-1">How’s the sky looking today?</h1>
     
     
-<form class="flex items-center max-w-lg mx-auto">   
+<div class="flex items-center max-w-lg mx-auto">   
     <label for="simple-search" class="sr-only">Search</label>
     <div class="relative w-full">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none text-gray-300">
@@ -160,13 +160,26 @@
   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
 </svg>
         </div>
-        <input type="text" id="simple-search" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for a place..." required />
+        
+        <div>
+          <input
+          type="text"
+          id="city"
+          oninput="Getlocation()"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="Search for a place..."
+          autocomplete="off"
+          required
+          />
+          <ul id="suggestions" class="bg-white border border-gray-300 mt-1 rounded-lg shadow-md max-h-60 overflow-auto hidden"></ul>
+        </div>
+
     </div>
-    <button type="submit" class="px-5 py-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <button class="px-5 py-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
       Search
         <span class="sr-only">Search</span>
     </button>
-</form>
+  </div>
 
 
 
@@ -222,9 +235,6 @@
     </ul>
   </details>
 </div>
-
-
-
       <div class="space-y-4">
         <!-- Forecast rows -->
         <div class="flex justify-between items-center py-4 border border-gray-700 rounded-xl px-4">
